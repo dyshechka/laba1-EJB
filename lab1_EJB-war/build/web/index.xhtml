@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Index Page</title>
+    </h:head>
+    <h:body>
+        #{studentBean.visit()}
+        <h:dataTable value="#{studentBean.list()}" var="student">
+            <h:column>
+                <f:facet name="header">Name</f:facet>
+                <h:outputText value="#{student.name}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">Date of Birth</f:facet>
+                <h:outputText value="#{student.date}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">Height</f:facet>
+                <h:outputText value="#{student.height}"/>
+            </h:column>
+        </h:dataTable>
+    <br/>
+        <h:form>
+            <h:commandButton action="#{studentBean.createStudent()}" value="create new student"/>
+        </h:form>
+    <br/>
+        <h:outputText value="The site is logged #{studentBean.counter} times"/>
+    </h:body>
+</html>
+
